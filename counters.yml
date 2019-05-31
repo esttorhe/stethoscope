@@ -1,0 +1,8 @@
+counters:
+  - namespace: website
+    subsystem: health
+    name: page_down
+    help: Tracks the number of times there's an error loading a website
+    labels: 
+      - 'website'
+      - 'status_code'
