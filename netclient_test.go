@@ -11,7 +11,8 @@ import (
 func TestNewNetClient_ProperlySetsThePassedInTimeout(t *testing.T) {
 	expected := 20 * time.Second
 
-	sut := NewNetClient(expected)
+	rawSut := NewNetClient(expected)
+	sut := rawSut.(*http.Client)
 	assert.Equal(t, expected, sut.Timeout, "Client.Timeout doesn't match. Got %v; expected %v", sut.Timeout, expected)
 	sutTransport := sut.Transport.(*http.Transport)
 	assert.Equal(t, expected, sutTransport.TLSHandshakeTimeout, "Client.Transport.TLSHandshakeTimeout doesn't match. Got %v; expected %v", sutTransport.TLSHandshakeTimeout, expected)

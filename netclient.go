@@ -8,7 +8,7 @@ import (
 
 // NewNetClient initializes a new `http.Client` with the specified `timeout`
 // as the timeout for the `Dial`, `TLSHandshake`, `IdleConnTimeout`, `ResponseHeaderTimeout` & `ExpectContinueTimeout.
-func NewNetClient(timeout time.Duration) (netClient http.Client) {
+func NewNetClient(timeout time.Duration) (netClient NetworkClient) {
 	netTransport := &http.Transport{
 		Dial: (&net.Dialer{
 			Timeout: timeout,
@@ -18,7 +18,7 @@ func NewNetClient(timeout time.Duration) (netClient http.Client) {
 		ResponseHeaderTimeout: timeout,
 		ExpectContinueTimeout: timeout,
 	}
-	netClient = http.Client{
+	netClient = &http.Client{
 		Timeout:   timeout,
 		Transport: netTransport,
 	}
