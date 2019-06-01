@@ -2,13 +2,13 @@ rules:
   - name: deluge
     website: DELUGE_WEBSITE
     counter: page_down
-    interval: 3600000000000 # Check every hour
+    interval: 120000000000 # Check every 2 minutes
     timeout: 2000000000 # Timeout after 2 seconds
     use_head: true
 
   - name: 'couch potato'
     website: COUCH_POTATO_WEBSITE
     counter: page_down
-    interval: 3600000000000 # Check every hour
+    interval: 120000000000 # Check every 2 minutes
     timeout: 2000000000 # Timeout after 2 seconds
     use_head: false
