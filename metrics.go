@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	PrometheusCheckerNamespace  = "todoist"
+	PrometheusCheckerNamespace  = "stethoscope"
 	PrometheusCheckertSubsystem = "webhook"
 	checkerErrorCountLabel      = "reason"
 
